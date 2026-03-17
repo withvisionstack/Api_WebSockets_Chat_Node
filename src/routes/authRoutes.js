@@ -1,6 +1,6 @@
 import express from "express"
 import { signup, login, logout, updateProfile } from "../controllers/authController.js"
-import protectRoute from "../middleware/authMiddleware.js" // ✅ único middleware
+import protectRoute from "../middleware/authMiddleware.js" // único middleware
 import { getUserById } from "../models/userModel.js"
 import { successResponse, errorResponse } from "../utils/response.js"
 import multer from "multer"
@@ -19,7 +19,7 @@ router.post("/login", login)
 router.post("/logout", logout)
 
 // Update profile com upload de foto
-router.put("/update-profile", protectRoute, upload.single("profilePic"), updateProfile) // ✅ protectRoute no lugar de protect
+router.put("/update-profile", protectRoute, upload.single("profilePic"), updateProfile) //  protectRoute no lugar de protect
 
 // Check auth
 router.get("/check", protectRoute, async (req, res) => {
